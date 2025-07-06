@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hidden Word</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  color: #0f0;
+  font-family: 'Press Start 2P', monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+.hidden-text {
+  color: #000; /* black on black */
+  user-select: text;
+  cursor: text;
+  position: absolute;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+input {
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+}
+
+button:hover {
+  background: #0f0;
+  color: #000;
+}
+</style>
+</head>
+<body>
+
+<div class="hidden-text" id="hidden-word">congratulations</div>
+
+<div class="center">
+  <input type="text" id="answer" placeholder="Your answer">
+  <br>
+  <button onclick="checkAnswer()">SUBMIT</button>
+</div>
+
+<script>
+function randomPosition() {
+  const word = document.getElementById('hidden-word');
+  const maxX = window.innerWidth - word.offsetWidth;
+  const maxY = window.innerHeight - word.offsetHeight - 100; // leave space for input
+  const x = Math.floor(Math.random() * maxX);
+  const y = Math.floor(Math.random() * maxY);
+  word.style.left = `${x}px`;
+  word.style.top = `${y}px`;
+}
+
+randomPosition();
+
+function checkAnswer() {
+  const input = document.getElementById('answer').value.trim().toLowerCase();
+  if (input === 'congratulations') {
+    alert('Correct. You may proceed.');
+    // window.location.href = "nextpage.html";
+  } else {
+    alert('Incorrect. Try again.');
+  }
+}
+</script>
+
+</body>
+</html>
