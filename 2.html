@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  color: #0f0;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.message {
+  max-width: 600px;
+  line-height: 1.5;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.cipher {
+  font-size: 20px;
+  letter-spacing: 5px;
+  margin-top: 20px;
+}
+
+input {
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 10px;
+  background: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+}
+
+button:hover {
+  background: #0f0;
+  color: #000;
+}
+</style>
+</head>
+<body>
+
+<div class="message">
+  The majority of people will not make it to the end. Et tu brutus?
+</div>
+
+<div class="cipher">
+  FIKMR
+</div>
+
+<input type="text" id="answer" placeholder="Your answer">
+<br>
+<button onclick="checkAnswer()">SUBMIT</button>
+
+<script>
+function checkAnswer() {
+  const input = document.getElementById('answer').value.trim().toUpperCase();
+  if (input === 'BEGIN') {
+    window.location.href = "3.html";  // 👈 redirect here
+  } else {
+    alert('Incorrect. Try again.');
+  }
+}
+</script>
+
+</body>
+</html>
